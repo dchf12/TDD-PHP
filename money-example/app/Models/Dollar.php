@@ -9,9 +9,9 @@ final class Dollar{
 	{
 	}
 
-	public function times(int $multiplier):void
+	public function times(int $multiplier): Dollar
 	{
-		$this->amount *= $multiplier;
+		return new Dollar($this->amount * $multiplier);
 	}
 }
 
