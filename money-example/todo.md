@@ -1,6 +1,6 @@
 -[] $5 + 10CHF = $10
 -[x] $5 * 2 = $10
--[] amountをprivateにする
+-[x] amountをprivateにする
 -[x] Dollarの副作用
 -[] Moneyの丸め処理
 -[x] equals()
