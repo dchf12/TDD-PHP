@@ -7,6 +7,7 @@ namespace App\Models;
 abstract class Money {
 
 	abstract protected function times(int $multiplier): Money;
+	abstract protected function currency(): string;
 
 	public function __construct(protected int $amount)
 	{
