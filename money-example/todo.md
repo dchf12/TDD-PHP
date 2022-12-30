@@ -9,5 +9,5 @@
 - [ ] 他のオブジェクトとの等価性比較
 - [x] 5 CHF * 2 = 10 CHF
 - [ ] DollarのFrancの重複
-- [ ] equalsの一般化
+- [x] equalsの一般化
 - [ ] timesの一般化
