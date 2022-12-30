@@ -5,21 +5,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 final class Franc extends Money {
-	private string $currency;
-
-	public function __construct(protected int $amount)
+	public function __construct(protected int $amount, protected string $currency = "CHF")
 	{
-		$this->currency = "CHF";
+		parent::__construct($amount, $currency);
 	}
 
 	public function times(int $multiplier): Money
 	{
-		return new Franc($this->amount * $multiplier);
-	}
-
-	public function currency(): string
-	{
-		return $this->currency;
+		return Money::franc($this->amount * $multiplier);
 	}
 }
 

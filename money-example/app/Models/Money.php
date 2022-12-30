@@ -7,9 +7,8 @@ namespace App\Models;
 abstract class Money {
 
 	abstract protected function times(int $multiplier): Money;
-	abstract protected function currency(): string;
 
-	public function __construct(protected int $amount)
+	public function __construct(protected int $amount, protected string $currency)
 	{
 	}
 
@@ -18,13 +17,18 @@ abstract class Money {
 		return $this->amount === $money->amount && get_class($money) === get_class($this);
 	}
 
+	public function currency(): string
+	{
+		return $this->currency;
+	}
+
 	public static function dollar(int $amount): Money
 	{
-		return new Dollar($amount);
+		return new Dollar($amount, "USD");
 	}
 
 	public static function franc(int $amount): Money
 	{
-		return new Franc($amount);
+		return new Franc($amount, "CHF");
 	}
 }
