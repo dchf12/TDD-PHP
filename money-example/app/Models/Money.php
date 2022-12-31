@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-abstract class Money {
-
-	abstract protected function times(int $multiplier): Money;
+class Money {
 
 	public function __construct(protected int $amount, protected string $currency)
 	{
@@ -14,7 +12,7 @@ abstract class Money {
 
 	public function equals(Money $money): bool
 	{
-		return $this->amount === $money->amount && get_class($money) === get_class($this);
+		return $this->amount === $money->amount && $this->currency() === $money->currency();
 	}
 
 	public function currency(): string
@@ -30,5 +28,10 @@ abstract class Money {
 	public static function franc(int $amount): Money
 	{
 		return new Franc($amount, "CHF");
+	}
+
+	public function times(int $multiplier)
+	{
+		return new Money($this->amount * $multiplier, $this->currency);
 	}
 }
