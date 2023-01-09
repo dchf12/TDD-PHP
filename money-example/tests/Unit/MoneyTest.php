@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\Models\Dollar;
-use App\Models\Franc;
 use App\Models\Money;
-use Termwind\Components\Dd;
 
 class MoneyTest extends TestCase
 {
